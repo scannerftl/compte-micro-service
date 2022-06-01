@@ -22,13 +22,16 @@ public class CompteServiceApplication {
     CommandLineRunner start(CompteRepository compteRepository, RepositoryRestConfiguration restConfiguration){
         return args -> {
             restConfiguration.exposeIdsFor(Compte.class);
-          compteRepository.save(new Compte(null,98000,new Date(), TypeCompte.COURANT));
+            compteRepository.save(new Compte(null,98000,new Date(), TypeCompte.COURANT));
             compteRepository.save(new Compte(null,12000,new Date(), TypeCompte.EPARGNE));
             compteRepository.save(new Compte(null,2100,new Date(), TypeCompte.COURANT));
+            compteRepository.save(new Compte(null,24100,new Date(), TypeCompte.SIMPLE));
             compteRepository.findAll().forEach(cp->{
                 System.out.println(cp.getType());
                 System.out.println(cp.getSolde());
             });
+            // now can i begin nown
+
         };
     }
 
